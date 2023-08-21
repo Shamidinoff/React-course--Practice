@@ -38,7 +38,7 @@ function App() {
         <Header />
       </StrictMode>
       <Field />
-      <Btn />
+      {/* <Btn /> */}
     </div>
   );
 }
