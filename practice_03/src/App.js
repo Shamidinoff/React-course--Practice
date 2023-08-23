@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+function WhoAmI({ name, surname, link }) {
+  return (
+    <div>
+      <h1>
+        My name is {name.firstName}, surname - {surname}
+      </h1>
+      <a href={link}>My profile</a>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WhoAmI
+        name={{ firstName: "John" }}
+        surname="Smith"
+        link="facebook.com"
+      />
+      <WhoAmI name={{ firstName: "Alex" }} surname="Shepard" link="vk.com" />
     </div>
   );
 }
