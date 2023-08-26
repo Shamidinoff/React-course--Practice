@@ -1,12 +1,13 @@
 import { Component } from "react";
 
-import "./employers-list-item.css";
+import "./employees-list-item.css";
 
-class EmployersListItem extends Component {
+class EmployeesListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       increase: false,
+      rise: false,
     };
   }
 
@@ -16,19 +17,29 @@ class EmployersListItem extends Component {
     }));
   };
 
+  onRise = () => {
+    this.setState(({ rise }) => ({
+      rise: !rise,
+    }));
+  };
+
   render() {
     const { name, salary, onDelete } = this.props;
+    const { increase, rise } = this.state;
 
-    const { increase } = this.state;
-
-    let classNames = "list-group-item d-flex justify-content-between like";
+    let classNames = "list-group-item d-flex justify-content-between";
     if (increase) {
       classNames += " increase";
+    }
+    if (rise) {
+      classNames += " like";
     }
 
     return (
       <li className={classNames}>
-        <span className="list-group-item-label">{name}</span>
+        <span className="list-group-item-label" onClick={this.onRise}>
+          {name}
+        </span>
         <input
           type="text"
           className="list-group-item-input"
@@ -57,4 +68,4 @@ class EmployersListItem extends Component {
   }
 }
 
-export default EmployersListItem;
+export default EmployeesListItem;
