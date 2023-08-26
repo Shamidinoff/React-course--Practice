@@ -1,5 +1,5 @@
 import "./App.css";
-import { Component } from "react";
+import { Component, Fragment } from "react";
 
 class WhoAmI extends Component {
   constructor(props) {
