@@ -4,4 +4,4 @@
 
 # Topics covered in the course
 
-Elements, Components, StrickMode, Props, Class, State, setState, This, Styled component,React Bootstrap,
+Elements, Components, StrickMode, Props, Class, State, setState, This, Styled component, React Bootstrap,
