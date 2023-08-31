@@ -47,6 +47,12 @@ import "./App.css";
 //     }
 // }
 
+const calcValue = () => {
+  console.log("Random");
+
+  return Math.random() * (50 - 1) + 1;
+};
+
 const Slider = (props) => {
   const [slide, setSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(false);
