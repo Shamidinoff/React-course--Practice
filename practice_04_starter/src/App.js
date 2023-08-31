@@ -49,6 +49,15 @@ import "./App.css";
 
 const Slider = (props) => {
   const [slide, setSlide] = useState(0);
+  const [autoplay, setAutoplay] = useState(false);
+
+  function changeSlide(i) {
+    setSlide((slide) => slide + i);
+  }
+
+  function toggleAutoplay() {
+    setAutoplay(!autoplay);
+  }
 
   return (
     <Container>
@@ -59,19 +68,25 @@ const Slider = (props) => {
           alt="slide"
         />
         <div className="text-center mt-5">
-          Active slide {slide} <br />{" "}
+          Active slide {slide} <br /> {autoplay ? "auto" : null}
         </div>
-        {/* <div className="buttons mt-3">
-                    <button 
-                        className="btn btn-primary me-2"
-                        onClick={() => this.changeSlide(-1)}>-1</button>
-                    <button 
-                        className="btn btn-primary me-2"
-                        onClick={() => this.changeSlide(1)}>+1</button>
-                    <button 
-                        className="btn btn-primary me-2"
-                        onClick={this.toggleAutoplay}>toggle autoplay</button>
-                </div> */}
+        <div className="buttons mt-3">
+          <button
+            className="btn btn-primary me-2"
+            onClick={() => changeSlide(-1)}
+          >
+            -1
+          </button>
+          <button
+            className="btn btn-primary me-2"
+            onClick={() => changeSlide(1)}
+          >
+            +1
+          </button>
+          <button className="btn btn-primary me-2" onClick={toggleAutoplay}>
+            toggle autoplay
+          </button>
+        </div>
       </div>
     </Container>
   );
