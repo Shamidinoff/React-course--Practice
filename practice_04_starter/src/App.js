@@ -1,18 +1,18 @@
-import { Component, useState, useEffect } from "react";
+import { Component, useState, useEffect, useCallback } from "react";
 import { Container } from "react-bootstrap";
 import "./App.css";
-
-const getSomeImages = () => {
-  console.log("fetching");
-  return [
-    "https://images.unsplash.com/photo-1507667522877-ad03f0c7b0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
-    "https://images.unsplash.com/photo-1516410529446-2c777cb7366d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
-  ];
-};
 
 const Slider = (props) => {
   const [slide, setSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(false);
+
+  const getSomeImages = useCallback(() => {
+    console.log("fetching");
+    return [
+      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+      "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1834&q=80",
+    ];
+  }, [slide]);
 
   function logging() {
     console.log("Log");
