@@ -1,4 +1,4 @@
-import { Component, useState, useEffect, useCallback } from "react";
+import { Component, useState, useEffect, useCallback, useMemo } from "react";
 import { Container } from "react-bootstrap";
 import "./App.css";
 
@@ -40,7 +40,20 @@ const Slider = (props) => {
     setAutoplay((autoplay) => !autoplay);
   }
 
-  const total = countTotal(slide);
+  const total = useMemo(() => {
+    return countTotal(slide);
+  }, [slide]);
+
+  const style = useMemo(
+    () => ({
+      color: slide > 4 ? "red" : "black",
+    }),
+    [slide]
+  );
+
+  useEffect(() => {
+    console.log("style!");
+  }, [style]);
 
   return (
     <Container>
@@ -50,7 +63,9 @@ const Slider = (props) => {
         <div className="text-center mt-5">
           Active slide {slide} <br /> {autoplay ? "auto" : null}
         </div>
-        <div className="text-center mt-5">Total slides: {total}</div>
+        <div style={style} className="text-center mt-5">
+          Total slides: {total}
+        </div>
         <div className="buttons mt-3">
           <button
             className="btn btn-primary me-2"
