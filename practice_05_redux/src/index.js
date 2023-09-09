@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createStore } from "redux";
 
 const initialState = 0;
 
@@ -12,7 +13,20 @@ const reducer = (state = 0, action) => {
   }
 };
 
-let state = reducer(initialState, { type: "INC" });
+const store = createStore(reducer);
+
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
+store.dispatch({ type: "INC" });
+store.dispatch({ type: "INC" });
+
+// let state = reducer(initialState, { type: "INC" });
+// state = reducer(state, { type: "INC" });
+// state = reducer(state, { type: "INC" });
+// state = reducer(state, { type: "INC" });
+// state = reducer(state, { type: "INC" });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
