@@ -25,12 +25,6 @@ document.getElementById("rnd").addEventListener("click", () => {
   store.dispatch(rnd(value));
 });
 
-// let state = reducer(initialState, {type: 'INC'});
-// state = reducer(state, {type: 'INC'});
-// state = reducer(state, {type: 'INC'});
-// state = reducer(state, {type: 'INC'});
-// console.log(state);
-
 ReactDOM.render(
   <React.StrictMode>
     <></>
