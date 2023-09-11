@@ -20,16 +20,13 @@ import "./heroesList.scss";
 // Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const someState = useSelector((state) => ({
-    activeFilter: state.filters.activeFilter,
-    heroes: state.heroes.heroes,
-  }));
-
   const filteredHeroes = useSelector((state) => {
-    if (state.activeFilter === "all") {
-      return state.heroes;
+    if (state.filters.activeFilter === "all") {
+      return state.heroes.heroes;
     } else {
-      return state.heroes.filter((item) => item.element === state.activeFilter);
+      return state.heroes.heroes.filter(
+        (item) => item.element === state.activeFilter
+      );
     }
   });
 
