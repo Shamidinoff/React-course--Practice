@@ -17,6 +17,12 @@
       "name": "Daurenbek Sh.",
       "description": "JavaScript",
       "element": "fire"
+    },
+    {
+      "id": "213add8e-294b-44db-920a-e5f364ac99c8",
+      "name": "Arslanbek Sh.",
+      "description": "Study School",
+      "element": "wind"
     }
   ],
   "filters": [
